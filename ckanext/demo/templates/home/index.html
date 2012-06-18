@@ -1,0 +1,25 @@
+
+{% ckan_extends "home/index.html" %}
+
+{% block title %}{{ _("DEMO Welcome") }} - {{ super() }}{% endblock %}
+
+{% block maintag %}{% endblock %}
+
+{% block content %}
+  <div role="main" class="hero">
+    <div class="container">
+      {{ self.flash() }}
+      {{ self.primary_content() }}
+    </div>
+  </div>
+  <div class="main">
+    <div class="container">
+      {{ self.secondary_content() }}
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{# Remove the toolbar. #}
+{% block toolbar %}{% endblock %}
