@@ -1,3 +1,28 @@
 {% ckan_extends "home/index.html" %}
 
 {% block title %}{{ _("DEMO Welcome") }} - {{ super() }}{% endblock %}
+
+{% block home_primary_content %}
+  <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
+  <p>Welcome to the CKAN demo. Here you can try out standard CKAN functionality in a
+  sandbox environment. Search for datasets directly from the homepage or by
+  navigating to the <a href="dataset">Datasets</a> search page where you can
+  facet by tags, groups and format.</p>
+
+  <p>You can also <a href="dataset/new">add a dataset</a> to get a sense of
+  publisher work flow. This form can be customised to require many additional
+  fields. In this demo only the most basic fields are required.</p>
+{% endblock %}
+
+{% block home_image %}{% endblock %}
+
+{#
+-- maybe also:
+
+To see our data explorer in action, have a look at the resource pages of any
+datasets in this group: http://demo.ckan.org/en/group/data-explorer
+
+For an example of our map explorer, please click on the ‘Map’ button under
+‘Preview’ of the Malawi Aid Project resource page:
+http://demo.ckan.org/dataset/malawi-aid-projects/resource/b717c20e-2006-4ad4-82d2-59b57ebc1ab0
+#}
