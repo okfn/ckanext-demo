@@ -1,20 +1,56 @@
 {% ckan_extends "home/index.html" %}
 
-{% block title %}{{ _("DEMO Welcome") }} - {{ super() }}{% endblock %}
+{% block title %}{{ _("CKAN Demo") }} - {{ super() }}{% endblock %}
 
-{% block home_primary_content %}
-  <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
-  <p>Welcome to the CKAN demo. Here you can try out standard CKAN functionality in a
-  sandbox environment. Search for datasets directly from the homepage or by
-  navigating to the <a href="dataset">Datasets</a> search page where you can
-  facet by tags, groups and format.</p>
-
-  <p>You can also <a href="dataset/new">add a dataset</a> to get a sense of
-  publisher work flow. This form can be customised to require many additional
-  fields. In this demo only the most basic fields are required.</p>
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{% url_for_static '/css/demo.css' %}" />
 {% endblock %}
 
-{% block home_image %}{% endblock %}
+{% block home_primary_heading -%}
+{{ _("Welcome to the CKAN demo") }}
+{%- endblock %}
+
+{% block home_primary_text %}
+  {% trans %}
+    Try out standard CKAN functionality in a
+    sandbox environment. Search for datasets directly from the homepage or by
+    navigating to the <a href="dataset">Datasets</a> search page where you can
+    facet by tags, groups and format.
+  {% endtrans %}
+{% endblock %}
+
+{% block home_image_caption -%}
+ {{ _("CKAN‘s data previewing tool has many powerful features") }}
+{%- endblock %}
+
+{% block home_image_content %}
+  <a class="image" href="#">
+    <img src="{% url_for_static('/images/homepage-graphic.jpg') %}" width="420" height="219" />
+  </a>
+{% endblock %}
+
+{% block primary_content %}
+  {{ super() }}
+  <section class="hero-secondary module module-info-overlay">
+    <div class="module-content">
+      <h3 class="module-heading">{{ _('Add a Dataset') }}</h3>
+      <p>
+        {% trans %}
+          You can add a dataset to get a sense of publisher workflow. This form
+          can be customised to require many additional fields. In this demo only
+          the most basic fields are required.
+        {% endtrans %}
+      </p>
+    </div>
+    <a class="close icon-remove-sign" href="#close"></a>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{% url_for_static "/javascript/demo.js" %}"></script>
+{% endblock %}
 
 {#
 -- maybe also:
@@ -24,5 +60,5 @@ datasets in this group: http://demo.ckan.org/en/group/data-explorer
 
 For an example of our map explorer, please click on the ‘Map’ button under
 ‘Preview’ of the Malawi Aid Project resource page:
-http://demo.ckan.org/dataset/malawi-aid-projects/resource/b717c20e-2006-4ad4-82d2-59b57ebc1ab0
+http://demo .ckan.org/dataset/malawi-aid-projects/resource/b717c20e-2006-4ad4-82d2-59b57ebc1ab0
 #}
