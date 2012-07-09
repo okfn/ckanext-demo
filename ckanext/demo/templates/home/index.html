@@ -36,8 +36,8 @@
     <div class="module-content">
       <h3 class="module-heading">{{ _('Add a Dataset') }}</h3>
       <p>
-        {% trans %}
-          You can add a dataset to get a sense of publisher workflow. This form
+        {% trans url=h.url_for(controller='package', action='new') %}
+          You can <a href="{{ url }}">add a dataset</a> to get a sense of publisher workflow. This form
           can be customised to require many additional fields. In this demo only
           the most basic fields are required.
         {% endtrans %}
