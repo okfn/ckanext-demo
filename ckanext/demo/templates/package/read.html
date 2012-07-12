@@ -1,7 +1,8 @@
 {% ckan_extends 'package/read.html' %}
 
-{% set dataset_extent = h.get_extra(c.pkg_dict,'spatial','') %}
+{% set dataset_extent = h.get_extra(c.pkg_dict, 'spatial', '') %}
 
+{# FIXME need to add the styles better #}
 {% block styles %}
   {{ super() }}
 
@@ -12,6 +13,7 @@
 {% endblock %}
 
 
+{# FIXME need to add the scripts better #}
 {% block scripts %}
   {{ super () }}
 
