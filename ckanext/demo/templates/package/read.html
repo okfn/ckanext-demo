@@ -31,9 +31,9 @@
 {% block secondary_content %}
   {{ super() }}
 
-  {% snippet "snippets/subscribe.html" %}
+  {# {% snippet "snippets/subscribe.html" %} #}
 
-  {% snippet "snippets/disqus_trackback.html" %}
+  {# {% snippet "snippets/disqus_trackback.html" %} #}
 
   {% if dataset_extent %}
     {% snippet "spatial/snippets/dataset_map_sidebar.html" %}
