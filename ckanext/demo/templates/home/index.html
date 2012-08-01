@@ -47,9 +47,14 @@
   </section>
 {% endblock %}
 
+{% block footer_attribution %}
+  {{ super() }}
+  <p><small>{{ _('Maps powered by Leaflet, map data &copy; OpenStreetMap contributors, CC-BY-SA, map imagery &copy; CloudMade') }}</small></p>
+{% endblock %}
+
 {% block scripts %}
   {{ super() }}
-  <script src="{% url_for_static "/javascript/demo.js" %}"></script>
+  <script src="{% url_for_static "/base/javascript/demo.js" %}"></script>
 {% endblock %}
 
 {#
