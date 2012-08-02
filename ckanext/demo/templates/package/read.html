@@ -9,7 +9,6 @@
   {% if dataset_extent %}
     {% snippet "spatial/snippets/dataset_map_styles.html" %}
   {% endif %}
-
 {% endblock %}
 
 
@@ -26,6 +25,15 @@
 {% block actions_content %}
   {{ super () }}
   {# <li><a class="btn" href=""><i class="icon-large icon-flag"></i> Report Issue</a></li> #}
+{% endblock %}
+
+{% block primary_content %}
+  {{ super() }}
+
+  {% if h.disqus_comments is callable %}
+    {{ h.disqus_comments() }}
+  {% endif %}
+
 {% endblock %}
 
 {% block secondary_content %}
