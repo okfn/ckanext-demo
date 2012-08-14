@@ -1,20 +1,15 @@
-if (document.querySelectorAll) {
-  var btns = document.querySelectorAll('.close');
-
-  [].forEach.call(btns || [], function (btn) {
-    btn.onclick = function () {
-      this.parentNode.className = this.parentNode.className.replace('fade-in', '');
-      return false;
-    };
+(function (jQuery) {
+  jQuery('.close').click(function (event) {
+    event.preventDefault();
+    jQuery(this).parent().removeClass('fade-in');
   });
 
-  window.addEventListener('load', function () {
-    var panels = document.querySelectorAll('.module-info-overlay');
-
-    [].forEach.call(panels || [], function (panel) {
+  jQuery(window).on('load', function () {
+    jQuery('.module-info-overlay').each(function () {
+      var panel = jQuery(this);
       setTimeout(function () {
-        panel.className += ' fade-in';
+        panel.addClass('fade-in');
       }, 1500);
     });
-  }, false);
-}
+  });
+})(this.jQuery);

@@ -15,7 +15,7 @@
   position: absolute;
   top: 0;
   bottom: auto;
-  background: #000;
+  background: #fff;
   background: rgba(255, 255, 255, 0.93);
   /* -webkit-border-radius: 5px; */
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -49,12 +49,21 @@
   opacity: 1;
 }
 
+.ie .module-info-overlay {
+  display: none;
+}
+
+.ie .module-info-overlay.fade-in {
+  display: block;
+}
+
 .module-info-overlay .module-heading {
   margin: 0;
   margin-bottom: 5px;
   padding: 0;
   border: 0;
   background: none;
+  filter: none;
 }
 
 .module-info-overlay .close {
@@ -64,6 +73,10 @@
   font-size: 20px;
   color: #ADAFAF;
   opacity: 1;
+}
+
+.module-info-overlay .close {
+  filter: none;
 }
 
 .map-attribution {
