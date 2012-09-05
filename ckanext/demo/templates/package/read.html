@@ -7,7 +7,7 @@
   {{ super() }}
 
   {% if dataset_extent %}
-    {% snippet "spatial/snippets/dataset_map_styles.html" %}
+  {#    {% snippet "spatial/snippets/dataset_map_styles.html" %}#}
   {% endif %}
 {% endblock %}
 
@@ -17,7 +17,7 @@
   {{ super () }}
 
   {% if dataset_extent %}
-    {% snippet "spatial/snippets/dataset_map_scripts.html", dataset_extent=dataset_extent %}
+  {#{% snippet "spatial/snippets/dataset_map_scripts.html", dataset_extent=dataset_extent %}#}
   {% endif %}
 {% endblock %}
 
@@ -44,7 +44,7 @@
   {# {% snippet "snippets/disqus_trackback.html" %} #}
 
   {% if dataset_extent %}
-    {% snippet "spatial/snippets/dataset_map_sidebar.html" %}
+  {#{% snippet "spatial/snippets/dataset_map_sidebar.html" %}#}
   {% endif %}
 
 {% endblock %}
