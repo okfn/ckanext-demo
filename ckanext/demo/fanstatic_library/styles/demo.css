@@ -33,3 +33,7 @@
   line-height: 28px;
   margin-right: 10px;
 }
+
+.masthead .debug {
+top: auto;
+}
