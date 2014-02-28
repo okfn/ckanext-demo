@@ -24,8 +24,10 @@ setup(
 	],
 	entry_points=\
 	"""
-        [ckan.plugins]
+    [ckan.plugins]
 	# Add plugins here, eg
 	demo=ckanext.demo.plugins:Demo
+	[paste.paster_command]
+	regenerate = ckanext.demo.commands:Reset
 	""",
 )
