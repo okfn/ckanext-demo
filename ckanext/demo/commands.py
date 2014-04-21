@@ -118,6 +118,7 @@ class Reset(CkanCommand):
         delete from package_extra where package_id in (select id from package where state = 'to_delete');
         delete from member where table_id in (select id from package where state = 'to_delete');
         delete from resource_group where package_id in (select id from package where state = 'to_delete');
+        delete from related_dataset where dataset_id in (select id from package where state = 'to_delete');
 
         delete from package where id in (select id from package where state = 'to_delete'); commit;'''
         model.Session.execute(sql)
