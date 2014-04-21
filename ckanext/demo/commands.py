@@ -53,25 +53,26 @@ class Reset(CkanCommand):
 
         # Add new datasets to keep here
         keep_datasets = [
-             'newcastle-city-council-payments-over-500',
-             'food-hygiene-information-scheme-rating-glasgow',
-             'up-library-catalogue',
+             u'newcastle-city-council-payments-over-500',
+             u'food-hygiene-information-scheme-rating-glasgow',
+             u'up-library-catalogue',
         ]
 
         # Add new organizations to keep here
         keep_orgs = [
-            'national-statistics-office'
-            'pagwell-borough-council',
+            u'national-statistics-office',
+            u'pagwell-borough-council',
         ]
 
         # Add new groups to keep here
         keep_groups = [
-            'geo-examples',
+            u'geo-examples',
         ]
 
         # Get list of resources to delete and delete datasets
         datasets = self._get_all_packages(context)
         for dataset in datasets:
+            # TODO: Don't delete datasets in the specified org
             if dataset['name'] not in keep_datasets or dataset['id'] not in keep_datasets:
                 # save data of resources in filestore for later
                 for res in dataset['resources']:
@@ -81,6 +82,7 @@ class Reset(CkanCommand):
                         filepath = upload.get_path(res['id'])
                         os.remove(filepath)
                 # delete dataset
+                print "Deleting dataset: {0}".format(dataset['name'])
                 toolkit.get_action('dataset_delete')(context, {'id': dataset['id']})
 
 
@@ -88,6 +90,7 @@ class Reset(CkanCommand):
         orgs = toolkit.get_action('organization_list')(context, {})
         for org in orgs:
             if org not in keep_orgs:
+                print "Deleting organization: {0}".format(org)
                 toolkit.get_action('organization_delete')(context, {'id': org})
                 toolkit.get_action('organization_purge')(context, {'id': org})
 
@@ -95,6 +98,7 @@ class Reset(CkanCommand):
         groups = toolkit.get_action('group_list')(context, {})
         for group in groups:
             if group not in keep_groups:
+                print "Deleting group: {0}".format(group)
                 toolkit.get_action('group_delete')(context, {'id': group})
                 toolkit.get_action('group_purge')(context, {'id': group})
 
@@ -103,8 +107,7 @@ class Reset(CkanCommand):
 
 
     def clean_deleted(self):
-        sql = '''begin; update package set state = 'to_delete' where state <> 'active' and revision_id in (select id from revision where timestamp < now() - interval '1 day');
-        update package set state = 'to_delete' where owner_org is null;
+        sql = '''begin; update package set state = 'to_delete' where state <> 'deleted' and revision_id in (select id from revision where timestamp < now() - interval '1 day');
         delete from package_role where package_id in (select id from package where state = 'to_delete' );
         delete from user_object_role where id not in (select user_object_role_id from package_role) and context = 'Package';
         delete from resource_revision where resource_group_id in (select id from resource_group where package_id in (select id from package where state = 'to_delete'));
