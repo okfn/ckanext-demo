@@ -56,6 +56,14 @@ class Reset(CkanCommand):
              u'newcastle-city-council-payments-over-500',
              u'food-hygiene-information-scheme-rating-glasgow',
              u'up-library-catalogue',
+             u'geo-examples',
+             u'afghanistan-election-data',
+             u'afterfibre',
+             u'us-national-foreclosure-statistics-january-2012',
+             u'malawi-aid-projects',
+             u'gold-prices',
+             u'adur_district_spending',
+             u'data-explorer',
         ]
 
         # Add new organizations to keep here
