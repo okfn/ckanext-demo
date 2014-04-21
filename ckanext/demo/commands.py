@@ -80,7 +80,10 @@ class Reset(CkanCommand):
                         # Delete the resource files from the filesystem
                         upload = uploader.ResourceUpload(res)
                         filepath = upload.get_path(res['id'])
-                        os.remove(filepath)
+                        try:
+                            os.remove(filepath)
+                        except:
+                            pass
                 # delete dataset
                 print "Deleting dataset: {0}".format(dataset['name'])
                 toolkit.get_action('dataset_delete')(context, {'id': dataset['id']})
