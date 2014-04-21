@@ -62,6 +62,7 @@ class Reset(CkanCommand):
         keep_orgs = [
             u'national-statistics-office',
             u'pagwell-borough-council',
+            u'test-org-2',
         ]
 
         # Add new groups to keep here
