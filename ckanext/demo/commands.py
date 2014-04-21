@@ -130,6 +130,7 @@ class Reset(CkanCommand):
         delete from package_relationship_revision where object_package_id in (select id from package where state = 'to_delete');
         delete from package_relationship where subject_package_id in (select id from package where state = 'to_delete');
         delete from package_relationship where object_package_id in (select id from package where state = 'to_delete');
+        delete from rating where package_id in (select id from package where state = 'to_delete');
 
         delete from package where id in (select id from package where state = 'to_delete'); commit;'''
         model.Session.execute(sql)
