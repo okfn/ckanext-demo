@@ -63,7 +63,6 @@ class Reset(CkanCommand):
              u'malawi-aid-projects',
              u'gold-prices',
              u'adur_district_spending',
-             u'data-explorer',
         ]
 
         # Add new organizations to keep here
@@ -76,6 +75,7 @@ class Reset(CkanCommand):
         # Add new groups to keep here
         keep_groups = [
             u'geo-examples',
+             u'data-explorer',
         ]
 
         # Get list of resources to delete and delete datasets
