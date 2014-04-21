@@ -1,4 +1,4 @@
-{% ckan_extends "footer.html" %}
+{% ckan_extends %}
 
 {# Move the language selector to the right to make room for the attribution #}
 {% block footer_nav %}
@@ -7,17 +7,12 @@
 {% endblock %}
 
 {% block footer_links %}
-  <li><a href="http://ckan.org/datasuite/about">About</a></li>
+  <li><a href="http://ckan.org/about">About</a></li>
   <li><a href="http://ckan.org/contact">Contact Us</a></li>
-  <li><a href="http://ckan.org/datasuite/services">Pricing</a></li>
+  <li><a href="http://ckan.org/services">Pricing</a></li>
   <li><a href="http://okfn.org/privacy">Privacy Policy</a></li>
   <li><a href="http://ckan.org">CKAN</a></li>
   <li><a href="http://okfn.org">OKFN</a></li>
-{% endblock %}
-
-{% block footer_attribution %}
-  {{ super() }}
-  <p class="map-attribution"><small>{{ _('Maps powered by Leaflet, map data &copy; OpenStreetMap contributors, CC-BY-SA, map imagery &copy; CloudMade') | safe }}</small></p>
 {% endblock %}
 
 {% block footer_lang %}{% endblock %}

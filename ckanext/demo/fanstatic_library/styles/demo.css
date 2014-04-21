@@ -1,0 +1,39 @@
+.hero {
+  background: url("/images/homepage-background.jpg") repeat-x center center;
+}
+
+.hero .module-popup,
+.hero .module-info-overlay {
+  margin-top: 30px;
+}
+
+.hero .module-content.box {
+  padding: 20px 25px 25px 25px;
+}
+
+.hero .module-content p {
+  margin-bottom: 20px;
+}
+
+.media-overlay .media-heading {
+  font-size: 14px;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.map-attribution {
+  margin-top: 28px;
+}
+
+.site-footer .lang-select {
+  margin-top: 10px;
+}
+
+.site-footer .lang-select label {
+  line-height: 28px;
+  margin-right: 10px;
+}
+
+.masthead .debug {
+top: auto;
+}

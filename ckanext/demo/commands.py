@@ -98,7 +98,6 @@ class Reset(CkanCommand):
                 print "Deleting dataset: {0}".format(dataset['name'])
                 toolkit.get_action('dataset_delete')(context, {'id': dataset['id']})
 
-
         # Delete all organizations except specified ones
         orgs = toolkit.get_action('organization_list')(context, {})
         for org in orgs:
@@ -117,7 +116,6 @@ class Reset(CkanCommand):
 
         # Purge datasets
         self.clean_deleted()
-
 
     def clean_deleted(self):
         sql = '''begin; update package set state = 'to_delete' where state <> 'active' and revision_id in (select id from revision where timestamp < now() - interval '1 day');
