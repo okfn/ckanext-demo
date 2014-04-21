@@ -27,5 +27,7 @@ setup(
         [ckan.plugins]
 	# Add plugins here, eg
 	demo=ckanext.demo.plugins:Demo
+	[paste.paster_command]
+	reset = ckanext.demo.commands:Reset
 	""",
 )
