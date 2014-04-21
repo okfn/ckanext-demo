@@ -73,7 +73,7 @@ class Reset(CkanCommand):
         datasets = self._get_all_packages(context)
         for dataset in datasets:
             # TODO: Don't delete datasets in the specified org
-            if dataset['name'] not in keep_datasets or dataset['id'] not in keep_datasets:
+            if not(dataset['name'] in keep_datasets or dataset['id'] in keep_datasets):
                 # save data of resources in filestore for later
                 for res in dataset['resources']:
                     if res['url_type'] == 'upload':
