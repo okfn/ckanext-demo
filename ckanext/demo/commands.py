@@ -52,11 +52,22 @@ class Reset(CkanCommand):
                    'model': model}
 
         # Add new datasets to keep here
-        keep_datasets = ['us-national-foreclosure-statistics-january-2012']
+        keep_datasets = [
+             'newcastle-city-council-payments-over-500',
+             'food-hygiene-information-scheme-rating-glasgow',
+             'up-library-catalogue',
+        ]
+
         # Add new organizations to keep here
-        keep_orgs = ['test-organization']
+        keep_orgs = [
+            'national-statistics-office'
+            'pagwell-borough-council',
+        ]
+
         # Add new groups to keep here
-        keep_groups = ['geo-examples']
+        keep_groups = [
+            'geo-examples',
+        ]
 
         # Get list of resources to delete and delete datasets
         datasets = self._get_all_packages(context)
