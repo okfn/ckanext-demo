@@ -112,7 +112,7 @@ class Reset(CkanCommand):
 
 
     def clean_deleted(self):
-        sql = '''begin; update package set state = 'to_delete' where state <> 'deleted' and revision_id in (select id from revision where timestamp < now() - interval '1 day');
+        sql = '''begin; update package set state = 'to_delete' where state <> 'active' and revision_id in (select id from revision where timestamp < now() - interval '1 day');
         delete from package_role where package_id in (select id from package where state = 'to_delete' );
         delete from user_object_role where id not in (select user_object_role_id from package_role) and context = 'Package';
         delete from resource_revision where resource_group_id in (select id from resource_group where package_id in (select id from package where state = 'to_delete'));
