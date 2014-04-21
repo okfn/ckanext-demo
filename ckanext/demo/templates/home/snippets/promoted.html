@@ -1,0 +1,22 @@
+{% set intro = g.site_intro_text %}
+
+<div class="module-content box">
+  <header>
+    {% if intro %}
+      {{ h.render_markdown(intro) }}
+    {% else %}
+      <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
+      <p>
+        {% trans %}This is a nice introductory paragraph about CKAN or the site
+        in general. We don't have any copy to go here yet but soon we will
+        {% endtrans %}
+      </p>
+    {% endif %}
+  </header>
+  <section class="featured media-overlay">
+    <h2 class="media-heading">{{ _("'open data (scrabble)' by Richard Akerman on Flickr. CC-BY-SA.") }}</h2>
+    <a class="media-image" href="https://www.flickr.com/photos/notbrucelee/8016200072">
+      <img src="{% url_for_static('/images/open-data.jpg') %}" alt="Open Data Scrabble" width="420" height="220" />
+    </a>
+  </section>
+</div>
