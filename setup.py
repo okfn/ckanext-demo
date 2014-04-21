@@ -28,6 +28,6 @@ setup(
 	# Add plugins here, eg
 	demo=ckanext.demo.plugins:Demo
 	[paste.paster_command]
-	regenerate = ckanext.demo.commands:Reset
+	reset = ckanext.demo.commands:Reset
 	""",
 )

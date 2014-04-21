@@ -56,7 +56,7 @@ class Reset(CkanCommand):
         # Add new organizations to keep here
         keep_orgs = ['test-organization']
         # Add new groups to keep here
-        keep_groups = ['test-group']
+        keep_groups = ['geo-examples']
 
         # Get list of resources to delete and delete datasets
         datasets = self._get_all_packages(context)
@@ -66,8 +66,8 @@ class Reset(CkanCommand):
                 for res in dataset['resources']:
                     if res['url_type'] == 'upload':
                         # Delete the resource files from the filesystem
-                        upload = uploader.ResourceUpload(rsc)
-                        filepath = upload.get_path(rsc['id'])
+                        upload = uploader.ResourceUpload(res)
+                        filepath = upload.get_path(res['id'])
                         os.remove(filepath)
                 # delete dataset
                 toolkit.get_action('dataset_delete')(context, {'id': dataset['id']})
