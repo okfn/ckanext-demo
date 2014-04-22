@@ -63,6 +63,7 @@ class Reset(CkanCommand):
              u'malawi-aid-projects',
              u'gold-prices',
              u'adur_district_spending',
+             u'ngds-earthquakes-data',
         ]
 
         # Add new organizations to keep here
