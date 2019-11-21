@@ -7,8 +7,7 @@
     {% else %}
       <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
       <p>
-        {% trans %}This is a nice introductory paragraph about CKAN or the site
-        in general. We don't have any copy to go here yet but soon we will
+        {% trans %}Welcome to the CKAN demo site. Feel free to explore and test the default functionality that CKAN offers. You can register a user account, create and organization and add datasets to it.
         {% endtrans %}
       </p>
     {% endif %}
@@ -16,7 +15,7 @@
   <section class="featured media-overlay">
     <h2 class="media-heading">{{ _("'open data (scrabble)' by Justin M Grimes on Flickr. CC-BY-SA.") }}</h2>
     <a class="media-image" href="https://www.flickr.com/photos/notbrucelee/8016200072">
-      <img src="{% url_for_static('/images/open-data.jpg') %}" alt="Open Data Scrabble" width="420" height="220" />
+      <img src="{% url_for_static('/images/open-data.jpg') %}" alt="Open Data Scrabble" width="420" />
     </a>
   </section>
 </div>
